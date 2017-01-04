@@ -14,7 +14,7 @@ def parse_json(line):
                 server_protocol = data['data']['ssh']['server_protocol']
     ret = ""
     if 'raw_banner' in server_protocol:
-        raw_banner = server_protocol['raw_banner'].rstrip()
+        raw_banner = server_protocol['raw_banner'].rstrip().encode('utf-8')
         if '220 ' in raw_banner:
             ret = "FTP"
         elif 'HTTP/' in raw_banner:
