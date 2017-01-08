@@ -18,3 +18,11 @@ sshversion
 	hadoop fs -put data/ssh.json ssh.json # put new json file
 	spark-submit --master yarn --deploy-mode client sshversion.py ssh.json output # run application
 	hadoop fs -cat output/* #show results
+
+k-means
+===
+
+	hadoop fs -rm -r myModelPath
+	hadoop fs -rm testdata # remove old file
+	hadoop fs -put data/testdata testdata # put new file
+	spark-submit --master yarn --deploy-mode client k-means.py testdata # run application
